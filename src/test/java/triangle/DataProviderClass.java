@@ -53,7 +53,11 @@ public class DataProviderClass {
     @DataProvider(name = "getSquare")
     public static Object[][] getSquare() {
         return new Object[][]{
-                {new Triangle(3,4,5), 6}
+                {new Triangle(3,4,5), 6},
+                {new Triangle(7,2,3), -72},
+                {new Triangle(-3, 4, 5), -6},
+                {new Triangle(3, -4, 5), -6},
+                {new Triangle(3,4,-5), -6}
         };
     }
 }

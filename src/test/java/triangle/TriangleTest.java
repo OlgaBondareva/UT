@@ -17,12 +17,13 @@ public class TriangleTest {
         Assert.assertEquals(t.checkTriangle(), result);
     }
 
-    @Test(dataProvider = "detectTriangle",dataProviderClass = DataProviderClass.class)
+    @Test(dataProvider = "detectTriangle", dataProviderClass = DataProviderClass.class)
     public void testDetectTriangle(Triangle t, int type) {
         Assert.assertEquals(t.detectTriangle(), type);
     }
 
-    @Test
-    public void testGetSquare() {
+    @Test(dataProvider = "getSquare", dataProviderClass = DataProviderClass.class)
+    public void testGetSquare(Triangle t, int result) {
+        Assert.assertEquals(t.getSquare(), result);
     }
 }
