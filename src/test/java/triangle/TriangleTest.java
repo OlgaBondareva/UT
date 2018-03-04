@@ -17,9 +17,9 @@ public class TriangleTest {
         Assert.assertEquals(t.checkTriangle(), result);
     }
 
-    @Test
-    public void testDetectTriangle() {
-        
+    @Test(dataProvider = "detectTriangle",dataProviderClass = DataProviderClass.class)
+    public void testDetectTriangle(Triangle t, int type) {
+        Assert.assertEquals(t.detectTriangle(), type);
     }
 
     @Test
