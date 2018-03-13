@@ -30,12 +30,17 @@ public class DataProviderClass {
     public static Object[][] checkBadTriangle() {
         return new Object[][]{
                 {new Triangle(1, 2, 3)},
+                {new Triangle(6, 3, 3)},
+                {new Triangle(12, 15, 3)},
                 {new Triangle(7, 2, 3)},
                 {new Triangle(3, 12, 4)},
+                {new Triangle(9, 21, 35)},
                 {new Triangle(-1, 1, 1)},
                 {new Triangle(2, -2, 2)},
                 {new Triangle(3, 3, -3)},
-                {new Triangle(0, 0, 0)}
+                {new Triangle(0, 5, 7)},
+                {new Triangle(21, 0, 21)},
+                {new Triangle(34, 25, 0)}
         };
     }
 
@@ -45,7 +50,8 @@ public class DataProviderClass {
                 {new Triangle(7, 2, 3), "-72"},
                 {new Triangle(-3, 4, 5), "-6"},
                 {new Triangle(3, -4, 5), "-6"},
-                {new Triangle(3, 4, -5), "-6"}
+                {new Triangle(3, 4, -5), "-6"},
+                {new Triangle(0, 0, 0), "0"}
         };
     }
 
@@ -54,7 +60,8 @@ public class DataProviderClass {
         return new Object[][]{
                 {new Triangle(3, 4, 5), "6"},
                 {new Triangle(14, 14, 14), "84.870489570875"},
-                {new Triangle(20, 20, 11), "105.75886487666176"}
+                {new Triangle(20, 20, 11), "105.75886487666176"},
+                {new Triangle(19, 8, 13), "40.98780306383839"}
         };
     }
 
@@ -67,8 +74,12 @@ public class DataProviderClass {
         return new Object[][]{
                 {new Triangle(345, 345, 345), 1},
                 {new Triangle(891, 891, 615), 2},
+                {new Triangle(315, 255, 315), 2},
+                {new Triangle(121, 77, 77), 2},
                 {new Triangle(328, 912, 587), 4},
-                {new Triangle(3, 4, 5), 8}
+                {new Triangle(3, 4, 5), 8},
+                {new Triangle(7, 7, 9.8994949361), 8},
+                {new Triangle(7, 7, 9.8994949361), 2}
         };
     }
 
