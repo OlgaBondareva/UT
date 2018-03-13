@@ -17,28 +17,53 @@ public class DataProviderClass {
         };
     }
 
-    @DataProvider(name = "checkTriangle")
-    public static Object[][] checkTriangle() {
+    @DataProvider
+    public static Object[][] checkGoodTriangle() {
         return new Object[][]{
-                {new Triangle(1, 1, 1), true},
-                {new Triangle(1, 2, 3), false},
-                {new Triangle(7, 2, 3), false},
-                {new Triangle(3, 12, 4), false},
-                {new Triangle(-1, 1, 1), false},
-                {new Triangle(2, -2, 2), false},
-                {new Triangle(3, 3, -3), false},
+                {new Triangle(1, 1, 1)},
+                {new Triangle(9, 12, 15)},
+                {new Triangle(15, 15, 14)}
         };
     }
 
-    /**
-     * @return new Triangle and it's type (see the Triangle.java)
-     */
-//    TR_EQUILATERAL = 1; // равносторонний
+    @DataProvider
+    public static Object[][] checkBadTriangle() {
+        return new Object[][]{
+                {new Triangle(1, 2, 3)},
+                {new Triangle(7, 2, 3)},
+                {new Triangle(3, 12, 4)},
+                {new Triangle(-1, 1, 1)},
+                {new Triangle(2, -2, 2)},
+                {new Triangle(3, 3, -3)},
+                {new Triangle(0, 0, 0)}
+        };
+    }
+
+    @DataProvider
+    public static Object[][] getBadSquare() {
+        return new Object[][]{
+                {new Triangle(7, 2, 3), "-72"},
+                {new Triangle(-3, 4, 5), "-6"},
+                {new Triangle(3, -4, 5), "-6"},
+                {new Triangle(3, 4, -5), "-6"}
+        };
+    }
+
+    @DataProvider
+    public static Object[][] getGoodSquare() {
+        return new Object[][]{
+                {new Triangle(3, 4, 5), "6"},
+                {new Triangle(14, 14, 14), "84.870489570875"},
+                {new Triangle(20, 20, 11), "105.75886487666176"}
+        };
+    }
+
+    //    TR_EQUILATERAL = 1; // равносторонний
 //    TR_ISOSCELES = 2;   // равнобедренный
 //    TR_ORDYNARY = 4;    // обычный
 //    TR_RECTANGULAR = 8; // прямоугольный
-    @DataProvider(name = "detectTriangle")
-    public static Object[][] detectTriangle() {
+    @DataProvider
+    public static Object[][] detectGoodTriangle() {
         return new Object[][]{
                 {new Triangle(345, 345, 345), 1},
                 {new Triangle(891, 891, 615), 2},
@@ -47,17 +72,8 @@ public class DataProviderClass {
         };
     }
 
-    /**
-     * @return Triangle and it's real square
-     */
-    @DataProvider(name = "getSquare")
-    public static Object[][] getSquare() {
-        return new Object[][]{
-                {new Triangle(3,4,5), 6},
-                {new Triangle(7,2,3), -72},
-                {new Triangle(-3, 4, 5), -6},
-                {new Triangle(3, -4, 5), -6},
-                {new Triangle(3,4,-5), -6}
-        };
+    @DataProvider
+    public static Object[][] detectBadTriangle() {
+        return new Object[][]{};
     }
 }

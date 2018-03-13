@@ -12,18 +12,33 @@ public class TriangleTest {
         Assert.assertEquals(t.getMessage(), message);
     }
 
-    @Test(dataProvider = "checkTriangle", dataProviderClass = DataProviderClass.class)
-    public void testCheckTriangle(Triangle t, boolean result) {
-        Assert.assertEquals(t.checkTriangle(), result);
+    @Test(dataProvider = "checkGoodTriangle", dataProviderClass = DataProviderClass.class)
+    public void testCheckGoodTriangle(Triangle t) {
+        Assert.assertTrue(t.checkTriangle());
     }
 
-    @Test(dataProvider = "detectTriangle", dataProviderClass = DataProviderClass.class)
-    public void testDetectTriangle(Triangle t, int type) {
+    @Test(dataProvider = "checkBadTriangle", dataProviderClass = DataProviderClass.class)
+    public void testCheckBadTriangle(Triangle t) {
+        Assert.assertFalse(t.checkTriangle());
+    }
+
+    @Test(dataProvider = "detectGoodTriangle", dataProviderClass = DataProviderClass.class)
+    public void testDetectGoodTriangle(Triangle t, int type) {
         Assert.assertEquals(t.detectTriangle(), type);
     }
 
-    @Test(dataProvider = "getSquare", dataProviderClass = DataProviderClass.class)
-    public void testGetSquare(Triangle t, int result) {
-        Assert.assertEquals(t.getSquare(), result);
+    @Test(dataProvider = "detectBadTriangle", dataProviderClass = DataProviderClass.class)
+    public void testDetectBadTriangle(Triangle t, int type) {
+        Assert.assertEquals(t.detectTriangle(), type);
+    }
+
+    @Test(dataProvider = "getGoodSquare", dataProviderClass = DataProviderClass.class)
+    public void testGetGoodSquare(Triangle t, String result) {
+        Assert.assertEquals(t.getSquare(), Double.parseDouble(result), 0.0);
+    }
+
+    @Test(dataProvider = "getBadSquare", dataProviderClass = DataProviderClass.class, expectedExceptions = Exception.class)
+    public void testGetBadSquare(Triangle t, String result) {
+        Assert.assertEquals(t.getSquare(), Double.parseDouble(result));
     }
 }
